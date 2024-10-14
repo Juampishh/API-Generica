@@ -1,23 +1,68 @@
-# API de Gestión de Usuarios
+# API Endpoints
 
-Bienvenido a la API de Gestión de Usuarios. Esta API permite manejar el registro, autenticación y gestión de usuarios. Está diseñada con **Node.js**, **Express**, y utiliza **TypeScript** para garantizar tipos seguros y consistentes en el código.
+## Authentication
 
-## Endpoints
+### POST /auth/login
+Inicia sesión en el sistema.
 
-### 1. **Autenticación**
+**Recibe:**
+- **username** (string): Nombre de usuario del usuario.
+- **password** (string): Contraseña del usuario.
 
-#### **POST** `/auth/login`
+---
 
-Este endpoint permite iniciar sesión a los usuarios registrados.
+### POST /auth/register
+Registra un nuevo usuario.
 
-- **Parámetros**:
-  - `username` (string, requerido): Nombre de usuario del usuario.
-  - `password` (string, requerido): Contraseña del usuario.
+**Recibe:**
+- **type** (string): Tipo de usuario ("admin" o "client").
+- **username** (string): Nombre de usuario único.
+- **firstName** (string): Primer nombre del usuario.
+- **lastName** (string): Apellido del usuario.
+- **email** (string): Correo electrónico del usuario.
+- **password** (string): Contraseña del usuario.
+- **createdAt** (Date, opcional): Fecha de creación de la cuenta.
 
-- **Ejemplo de cuerpo de petición**:
+---
 
-  ```json
-  {
-    "username": "juampi",
-    "password": "mysecurepassword"
-  }
+## Users
+
+### GET /users
+Obtener la lista de usuarios registrados.
+
+---
+
+### GET /users/:id
+Obtener un usuario específico por su ID.
+
+---
+
+### POST /users
+Crear un nuevo usuario.
+
+**Recibe:**
+- **type** (string): Tipo de usuario ("admin" o "client").
+- **username** (string): Nombre de usuario único.
+- **firstName** (string): Primer nombre del usuario.
+- **lastName** (string): Apellido del usuario.
+- **email** (string): Correo electrónico del usuario.
+- **password** (string): Contraseña del usuario.
+- **created_at** (Date, automáticamente generado): Fecha de creación.
+
+---
+
+### PUT /users/:id
+Actualizar la información de un usuario.
+
+**Recibe:**
+- **type** (string): Tipo de usuario ("admin" o "client").
+- **username** (string): Nombre de usuario único.
+- **firstName** (string): Primer nombre del usuario.
+- **lastName** (string): Apellido del usuario.
+- **email** (string): Correo electrónico del usuario.
+- **password** (string): Contraseña del usuario.
+
+---
+
+### DELETE /users/:id
+Eliminar un usuario por su ID.

@@ -151,7 +151,7 @@ export function indexWelcome(req: Request, res: Response): Response {
         </div>
 
         <footer>
-          <p>API Documentation | <a href="https://github.com/tu-repo">View on GitHub</a></p>
+          <p>API Documentation | <a href="https://github.com/Juampishh/API-Generica.git">View on GitHub</a></p>
         </footer>
       </body>
     </html>
